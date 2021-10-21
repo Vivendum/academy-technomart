@@ -1,0 +1,20 @@
+{
+  "name": "academy-technomart",
+  "version": "1.0.0",
+  "description": "A training markup project with a fixed layout of the website of the Technomart store offering materials, tools and equipment for construction",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vivendum/academy-technomart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vivendum/academy-technomart/issues"
+  },
+  "homepage": "https://github.com/Vivendum/academy-technomart#readme",
+  "author": {
+    "name": "Vivendum",
+    "email": "vivendum@mail.ru",
+    "url": "https://vivendum.github.io/academy-technomart"
+  },
+  "license": "MIT"
+}
