@@ -5,5 +5,9 @@
 Пример структуры файлов:
 
 image/
-├── image.svg
-└── другие *.svg, *.png, *.jpg, *.jpeg, *.webp файлы
+├── content/
+    ├── image.svg
+    └── другие *.svg, *.png, *.jpg, *.jpeg, *.webp файлы контентного содержания
+├── decor/
+    ├── image.svg
+    └── другие *.svg, *.png, *.jpg, *.jpeg, *.webp файлы декорационного содержания
