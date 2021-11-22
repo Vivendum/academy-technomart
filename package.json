@@ -22,11 +22,13 @@
     "npm": ">= 6.14.4"
   },
   "devDependencies": {
+    "browser-sync": "^2.27.7",
     "gulp": "4.0.x",
     "gulp-plumber": "1.2.x",
     "gulp-rigger": "0.5.x"
   },
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "start": "gulp start"
   }
 }
