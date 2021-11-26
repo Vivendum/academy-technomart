@@ -26,7 +26,8 @@
     "gulp": "4.0.x",
     "gulp-plumber": "1.2.x",
     "gulp-rigger": "0.5.x",
-    "gulp-w3c-html-validator": "2.0.1"
+    "gulp-w3c-html-validator": "2.0.1",
+    "gulp-htmlhint": "4.0.x"
   },
   "scripts": {
     "test": "gulp test",

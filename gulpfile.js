@@ -5,6 +5,7 @@ var gulp = require("gulp");
 var plumber = require("gulp-plumber");
 var rigger = require("gulp-rigger");
 var validator_html = require("gulp-w3c-html-validator");
+var linter_html = require("gulp-htmlhint");
 
 gulp.task("build-html", function() {
   return gulp.src("source/template/*.html")
@@ -36,13 +37,19 @@ gulp.task("validator-html", function() {
     .pipe(validator_html.reporter());
 });
 
+gulp.task("linter-html", function() {
+  return gulp.src("build/before/*.html")
+    .pipe(linter_html(".htmlhintrc"))
+    .pipe(linter_html.reporter());
+});
+
 gulp.task("validator-html-min", function() {
   return gulp.src("build/after/*.html")
     .pipe(validator_html())
     .pipe(validator_html.reporter());
 });
 
-gulp.task("test", gulp.series("validator-html"));
+gulp.task("test", gulp.series("validator-html", "linter-html"));
 gulp.task("test-min", gulp.series("validator-html-min"));
 gulp.task("build", gulp.series("build-html"));
 gulp.task("start", gulp.series("build-html", "server"));
