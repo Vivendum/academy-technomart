@@ -25,9 +25,12 @@
     "browser-sync": "^2.27.7",
     "gulp": "4.0.x",
     "gulp-plumber": "1.2.x",
-    "gulp-rigger": "0.5.x"
+    "gulp-rigger": "0.5.x",
+    "gulp-w3c-html-validator": "2.0.1"
   },
   "scripts": {
+    "test": "gulp test",
+    "test-min": "gulp test-min",
     "build": "gulp build",
     "start": "gulp start"
   }
