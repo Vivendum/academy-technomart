@@ -8,5 +8,5 @@ template/
 ├── section/
     ├── header.html
     └── другие *.html файлы размечающие секцию
-├── main.html
+├── index.html
 └── другие *.html файлы размечающие основу страницы
