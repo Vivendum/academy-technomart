@@ -27,9 +27,11 @@
     "gulp-plumber": "1.2.x",
     "gulp-rigger": "0.5.x",
     "gulp-w3c-html-validator": "2.0.1",
-    "gulp-htmlhint": "4.0.x"
+    "gulp-htmlhint": "4.0.x",
+    "gulp-gh-pages": "0.5.x"
   },
   "scripts": {
+    "deploy": "gulp deploy",
     "test": "gulp test",
     "test-min": "gulp test-min",
     "build": "gulp build",
