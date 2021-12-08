@@ -6,7 +6,43 @@
     <title>Шаблон главной страницы</title>
   </head>
   <body>
-    //= section/header-main.html
+    <header>
+      <nav>
+        <a title="Вы находитесь на этой странице">Техномарт</a>
+        <form name="search" action="https://echo.htmlacademy.ru/" method="get">
+          <label for="search-search">Поиск по сайту</label>
+          <input id="search-search" name="search" type="search" placeholder="Поиск:">
+          <input type="submit" value="Найти">
+        </form>
+        <ul>
+          <li>
+            <ul>
+              <li><a href="#">Войти</a></li>
+              <li><a href="#">Регистрация</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Закладки: 0</a></li>
+          <li><a href="#">Корзина: 0</a></li>
+          <li><a href="#">Оформить заказ</a></li>
+        </ul>
+      </nav>
+      <p>Интернет-магазин  строительных материалов  и инструментов для ремонта</p>
+      <address>
+        <a href="tel:+78005558628">+7 800 555-86-28</a>
+        <p><abbr title="город">г.</abbr> Санкт-Петербург, <abbr title="набережная">наб.</abbr> Реки Карповки, 5 <abbr title="литера">лит</abbr> П</p>
+      </address>
+      <nav>
+        <ul>
+          <li><a title="Вы находитесь на этой странице">Главная</a></li>
+          <li><a href="#">Компания</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="#">Новости</a></li>
+          <li><a href="#">Спецпредложения</a></li>
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
       <h1>Магазин для строительства «Техномарт»</h1>
       <section>
@@ -158,7 +194,43 @@
         <a href="#">Заблудились? Напишите нам!</a>
       </section>
     </main>
-    //= section/footer-main.html
+    <footer>
+      <a title="Вы находитесь на этой странице">Техномарт</a>
+      <p>
+        <abbr title="город">г.</abbr> Санкт-Петербург, <abbr title="набережная">наб.</abbr> Реки Карповки, 5 <abbr title="литера">лит</abbr> П<br>
+        <a href="tel:+78005558628">+7 800 555-86-28</a>
+      </p>
+      <ul>
+        <li>
+          <ul>
+            <li><a title="Вы находитесь на этой странице">Главная</a></li>
+            <li><a href="#">Новости</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+            <li><a href="#">Доставка</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li><a href="catalog.html">Материалы</a></li>
+            <li><a href="catalog.html">Техника</a></li>
+            <li><a href="catalog.html">Инструмент</a></li>
+            <li><a href="catalog.html">Спецпредложения</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        © 2010–2021 Компания «Техномарт»<br>
+        Все права защищены
+      </p>
+      <ul>
+        <li><a href="#">Техномарт в ВКонтакте</a></li>
+        <li><a href="#">Техномарт в <span lang="en">Facebook</span></a></li>
+        <li><a href="#">Техномарт в <span lang="en">Instagram</span></a></li>
+      </ul>
+      <p>Обратная связь: <a href="mailto:mail@htmlacademy.ru" lang="en">mail@htmlacademy.ru</a></p>
+      <p>Разработано — <a href="https://htmlacademy.ru/intensive/htmlcss" lang="en">htmlacademy.ru</a></p>
+    </footer>
     <p>
       <img src="image/content/" alt="Город Санкт-Петербург, набережная реки Карповки, дом 5, литера П.">
       <button type="button">Закрыть</button>
