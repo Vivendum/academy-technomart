@@ -25,9 +25,12 @@
     "browser-sync": "^2.27.7",
     "gulp": "4.0.x",
     "gulp-plumber": "1.2.x",
+    "gulp-changed": "4.0.x",
     "gulp-rigger": "0.5.x",
     "gulp-w3c-html-validator": "2.0.1",
     "gulp-htmlhint": "4.0.x",
+    "gulp-imagemin": "7.1.x",
+    "imagemin-pngquant": "9.0.x",
     "gulp-gh-pages": "0.5.x"
   },
   "scripts": {
