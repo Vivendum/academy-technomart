@@ -30,12 +30,6 @@ gulp.task("build-copy", function() {
     .pipe(server.stream());
 });
 
-gulp.task("copy", function(done) {
-  gulp.src("build/after/**/*.{html,jpg,png,svg}")
-    .pipe(gulp.dest("public/"));
-  done();
-});
-
 gulp.task("server", function() {
   server.init({
     server: "build/after",
@@ -123,6 +117,12 @@ gulp.task("image-optimization-to-after", function() {
 
 gulp.task("image-optimization", gulp.parallel("image-optimization-to-before", "image-optimization-to-after"));
 
+gulp.task("public-copy", function() {
+  return gulp.src("build/after/**/*.*")
+    .pipe(changed("public/"))
+    .pipe(gulp.dest("public/"));
+});
+
 gulp.task("publish", function() {
   return gulp.src("./public/**/*")
     .pipe(publish_project());
@@ -131,6 +131,6 @@ gulp.task("publish", function() {
 gulp.task("test", gulp.series("validator-html", "linter-html"));
 gulp.task("test-min", gulp.series("validator-html-min"));
 gulp.task("build", gulp.series("build-html", "build-copy", "image-optimization"));
-gulp.task("public", gulp.series("build-html", "image-optimization", "copy"));
 gulp.task("start", gulp.series("build-html", "build-copy", "image-optimization", "server"));
+gulp.task("public", gulp.series("build", "public-copy"));
 gulp.task("deploy", gulp.series("public", "publish"));

@@ -34,6 +34,7 @@
     "gulp-gh-pages": "0.5.x"
   },
   "scripts": {
+    "public": "gulp public",
     "deploy": "gulp deploy",
     "test": "gulp test",
     "test-min": "gulp test-min",
