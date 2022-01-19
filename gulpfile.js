@@ -20,6 +20,16 @@ gulp.task("build-html", function() {
     .pipe(server.stream());
 });
 
+gulp.task("build-copy", function() {
+  return gulp.src([
+    "source/image/favicon/favicon-16.ico",
+    "source/instruction/technomart.webmanifest"
+  ])
+    .pipe(changed("build/after/"))
+    .pipe(gulp.dest("build/after/"))
+    .pipe(server.stream());
+});
+
 gulp.task("copy", function(done) {
   gulp.src("build/after/**/*.{html,jpg,png,svg}")
     .pipe(gulp.dest("public/"));
@@ -39,6 +49,7 @@ gulp.task("server", function() {
 
   gulp.watch(["source/image/**/*.{jpg,png,svg}", "!source/image/archive/**/*.*"], gulp.series("image-optimization"));
   gulp.watch("source/template/**/*.html", gulp.series("build-html"));
+  gulp.watch("source/instruction/*.*", gulp.series("build-copy"));
   gulp.watch("build/after/*.html").on("change", server.reload);
 });
 
@@ -119,7 +130,7 @@ gulp.task("publish", function() {
 
 gulp.task("test", gulp.series("validator-html", "linter-html"));
 gulp.task("test-min", gulp.series("validator-html-min"));
-gulp.task("build", gulp.series("build-html", "image-optimization"));
+gulp.task("build", gulp.series("build-html", "build-copy", "image-optimization"));
 gulp.task("public", gulp.series("build-html", "image-optimization", "copy"));
-gulp.task("start", gulp.series("build-html", "image-optimization", "server"));
+gulp.task("start", gulp.series("build-html", "build-copy", "image-optimization", "server"));
 gulp.task("deploy", gulp.series("public", "publish"));
