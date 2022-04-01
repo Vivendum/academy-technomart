@@ -8,6 +8,7 @@ var rigger = require("gulp-rigger");
 var validator_html = require("gulp-w3c-html-validator");
 var linter_html = require("gulp-htmlhint");
 var sass = require("gulp-sass"); sass.compiler = require("node-sass");
+var sourcemaps = require("gulp-sourcemaps");
 var optimization_image = require("gulp-imagemin");
 var optimization_png = require("imagemin-pngquant");
 var publish_project = require("gulp-gh-pages");
@@ -24,10 +25,12 @@ gulp.task("build-html", function() {
 gulp.task("build-css", function() {
   return gulp.src("source/style/style.scss")
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: "expanded"
     }))
     .pipe(gulp.dest("build/before/style"))
+    .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("build/after/style"))
     .pipe(server.stream());
 });
