@@ -27,8 +27,8 @@ gulp.task("build-css", function() {
     .pipe(sass({
       outputStyle: "expanded"
     }))
-    .pipe(gulp.dest("build/style/before"))
-    .pipe(gulp.dest("build/style/after"))
+    .pipe(gulp.dest("build/before/style"))
+    .pipe(gulp.dest("build/after/style"))
     .pipe(server.stream());
 });
 
