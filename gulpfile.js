@@ -143,7 +143,7 @@ gulp.task("publish", function() {
 
 gulp.task("test", gulp.series("validator-html", "linter-html"));
 gulp.task("test-min", gulp.series("validator-html-min"));
-gulp.task("build", gulp.series("build-html", "build-css", "build-copy", "image-optimization"));
-gulp.task("start", gulp.series("build-html", "build-css", "build-copy", "image-optimization", "server"));
+gulp.task("build", gulp.parallel("build-html", "build-css", "build-copy", "image-optimization"));
+gulp.task("start", gulp.series("build", "server"));
 gulp.task("public", gulp.series("build", "public-copy"));
 gulp.task("deploy", gulp.series("public", "publish"));
