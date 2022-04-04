@@ -1,6 +1,7 @@
 "use strict";
 
 var server = require("browser-sync").create();
+var postcss = require("gulp-postcss");
 var gulp = require("gulp");
 var plumber = require("gulp-plumber");
 var changed = require("gulp-changed");
@@ -9,6 +10,7 @@ var validator_html = require("gulp-w3c-html-validator");
 var linter_html = require("gulp-htmlhint");
 var sass = require("gulp-sass"); sass.compiler = require("node-sass");
 var sourcemaps = require("gulp-sourcemaps");
+var autoprefixer = require("autoprefixer");
 var optimization_image = require("gulp-imagemin");
 var optimization_png = require("imagemin-pngquant");
 var publish_project = require("gulp-gh-pages");
@@ -29,6 +31,9 @@ gulp.task("build-css", function() {
     .pipe(sass({
       outputStyle: "expanded"
     }))
+    .pipe(postcss([
+      autoprefixer()
+    ]))
     .pipe(gulp.dest("build/before/style"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("build/after/style"))
