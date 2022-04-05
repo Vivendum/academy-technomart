@@ -40,7 +40,7 @@ gulp.task("build-css", function() {
     .pipe(server.stream());
 });
 
-gulp.task("build-copy", function() {
+gulp.task("build-copy-general", function() {
   return gulp.src([
     "source/image/favicon/favicon-16.ico",
     "source/instruction/technomart.webmanifest"
@@ -49,6 +49,16 @@ gulp.task("build-copy", function() {
     .pipe(gulp.dest("build/after/"))
     .pipe(server.stream());
 });
+
+gulp.task("build-copy-font", function() {
+  return gulp.src([
+    "source/font/*.{woff2,woff}"
+  ])
+    .pipe(changed("build/after/font"))
+    .pipe(gulp.dest("build/after/font"))
+});
+
+gulp.task("build-copy", gulp.parallel("build-copy-general", "build-copy-font"));
 
 gulp.task("server", function() {
   server.init({
@@ -64,7 +74,7 @@ gulp.task("server", function() {
   gulp.watch(["source/image/**/*.{jpg,png,svg}", "!source/image/archive/**/*.*"], gulp.series("image-optimization"));
   gulp.watch("source/template/**/*.html", gulp.series("build-html"));
   gulp.watch("source/style/**/*.scss", gulp.series("build-css"));
-  gulp.watch("source/instruction/*.*", gulp.series("build-copy"));
+  gulp.watch("source/instruction/*", gulp.series("build-copy-general"));
   gulp.watch("build/after/*.html").on("change", server.reload);
 });
 
