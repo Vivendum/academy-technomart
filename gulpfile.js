@@ -2,6 +2,7 @@
 
 var server = require("browser-sync").create();
 var postcss = require("gulp-postcss");
+var postcss_normalize = require("postcss-normalize");
 var gulp = require("gulp");
 var plumber = require("gulp-plumber");
 var changed = require("gulp-changed");
@@ -28,6 +29,9 @@ gulp.task("build-css", function() {
   return gulp.src("source/style/style.scss")
     .pipe(plumber())
     .pipe(sourcemaps.init())
+    .pipe(postcss([
+      postcss_normalize()
+    ]))
     .pipe(sass({
       outputStyle: "expanded"
     }))
