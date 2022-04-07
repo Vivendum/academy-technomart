@@ -35,12 +35,14 @@
     "gulp-rigger": "0.5.x",
     "gulp-sass": "4.1.1",
     "gulp-sourcemaps": "2.6.5",
+    "gulp-stylelint": "5.0.0",
     "gulp-w3c-html-validator": "2.0.1",
     "imagemin-pngquant": "9.0.x"
   },
   "scripts": {
     "public": "gulp public",
     "deploy": "gulp deploy",
+    "lint": "gulp lint",
     "test": "gulp test",
     "test-min": "gulp test-min",
     "build": "gulp build",

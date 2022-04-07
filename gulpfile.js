@@ -12,6 +12,7 @@ var linter_html = require("gulp-htmlhint");
 var sass = require("gulp-sass"); sass.compiler = require("node-sass");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("autoprefixer");
+var linter_css = require("gulp-stylelint");
 var optimization_image = require("gulp-imagemin");
 var optimization_png = require("imagemin-pngquant");
 var publish_project = require("gulp-gh-pages");
@@ -100,6 +101,17 @@ gulp.task("validator-html-min", function() {
     .pipe(validator_html.reporter());
 });
 
+gulp.task("linter-css", function () {
+  return gulp.src("source/style/**/*.scss")
+    .pipe(linter_css({
+      reporters: [{
+        failAfterError: true,
+        formatter: "string",
+        console: true
+      }]
+    }));
+});
+
 gulp.task("image-optimization-to-before", function() {
   return gulp.src(["source/image/**/*.svg", "!source/image/archive/**/*.svg"])
     .pipe(changed("build/before/image/"))
@@ -163,6 +175,7 @@ gulp.task("publish", function() {
     .pipe(publish_project());
 });
 
+gulp.task("lint", gulp.series("linter-css"));
 gulp.task("test", gulp.series("validator-html", "linter-html"));
 gulp.task("test-min", gulp.series("validator-html-min"));
 gulp.task("build", gulp.parallel("build-html", "build-css", "build-copy", "image-optimization"));
