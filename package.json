@@ -40,12 +40,10 @@
     "imagemin-pngquant": "9.0.x"
   },
   "scripts": {
-    "public": "gulp public",
-    "deploy": "gulp deploy",
-    "lint": "gulp lint",
-    "test": "gulp test",
-    "test-min": "gulp test-min",
+    "test": "gulp lint",
     "build": "gulp build",
-    "start": "gulp start"
+    "start": "gulp start",
+    "public": "gulp public",
+    "check": "gulp"
   }
 }
