@@ -2,9 +2,9 @@
 <html lang="ru">
   <head>
     //= head/charset.html
-    //= head/viewport.html
     <title>Каталог товаров магазина «Техномарт»</title>
     //= head/favicon.html
+    //= head/viewport.html
     //= head/style.html
   </head>
   <body>
@@ -23,11 +23,11 @@
           <fieldset>
             <legend>Цена:</legend>
             <label for="price-min">Минимальная цена</label>
-            <input id="price-min" name="price_min" type="number" min="0" max="40000" step="1000" value="0">
+            <input id="price-min" name="price_min" type="number" value="0" min="0" max="40000" step="1000">
             <label for="price-max">Максимальная цена</label>
-            <input id="price-max" name="price_max" type="number" min="1000" max="40000" step="1000" value="30000">
-            <span>от <output for="price-min" name="show_price_min">0</output></span>
-            <span>до <output for="price-max" name="show_price_max">30000</output></span>
+            <input id="price-max" name="price_max" type="number" value="30000" min="1000" max="40000" step="1000">
+            <span>от <output name="show_price_min" for="price-min">0</output></span>
+            <span>до <output name="show_price_max" for="price-max">30000</output></span>
           </fieldset>
           <fieldset>
             <legend>Производители:</legend>
@@ -93,7 +93,7 @@
         <ul>
           <li>
             <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" width="144" height="128" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
             <s>30500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -101,7 +101,7 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" width="144" height="128" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
             <s>30500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">30500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -109,7 +109,7 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" width="144" height="128" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
             <s>30500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -117,7 +117,7 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 3000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" width="127" height="112" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета." width="127" height="112">
             <s>22500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">15500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -125,7 +125,7 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" width="144" height="128" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
             <s>30500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -133,14 +133,14 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 2000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" width="127" height="112" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета." width="127" height="112">
             <a href="#">12500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
             <button type="button">В закладки</button>
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 3000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" width="127" height="112" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета." width="127" height="112">
             <s>22500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">15500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -148,7 +148,7 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" width="144" height="128" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
             <s>30500 <abbr title="рублей">р</abbr>.</s>
             <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
@@ -156,7 +156,7 @@
           </li>
           <li>
             <h3>Перфоратор BOSCH BFG 2000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" width="127" height="112" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета.">
+            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета." width="127" height="112">
             <a href="#">12500 <abbr title="рублей">р</abbr>.</a>
             <button type="button">Купить</button>
             <button type="button">В закладки</button>
