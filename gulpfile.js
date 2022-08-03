@@ -1,188 +1,338 @@
-"use strict";
+import browser_sync from "browser-sync";
+import gulp from "gulp";
+import rigger from "gulp-rigger";
+import sass_gulp from "gulp-sass";
+import sass_engine from "sass";
+const sass = sass_gulp(sass_engine);
+import css_engine from "gulp-postcss";
+import css_normalize from "postcss-normalize";
+import css_autoprefix from "autoprefixer";
+import sourcemaps from "gulp-sourcemaps";
+import imagemin, {mozjpeg, svgo} from "gulp-imagemin";
+import pngquant from "imagemin-pngquant";
+import changed from "gulp-changed";
+import linthtml from "gulp-htmlhint";
+import lintscss from "gulp-stylelint";
+import {htmlValidator} from "gulp-w3c-html-validator";
+import publish_engine from "gulp-gh-pages";
 
-var server = require("browser-sync"); server.create();
-var gulp = require("gulp");
-var plumber = require("gulp-plumber");
-var rigger = require("gulp-rigger");
-var sourcemap = require("gulp-sourcemaps");
-var postcss = require("gulp-postcss");
-var postcss_normalize = require("postcss-normalize");
-var postcss_autoprefixer = require("autoprefixer");
-var sass = require("gulp-sass"); sass.compiler = require("node-sass");
-var changed = require("gulp-changed");
-var optimization_image = require("gulp-imagemin");
-var optimization_png = require("imagemin-pngquant");
-var linter_html = require("gulp-htmlhint");
-var linter_css = require("gulp-stylelint");
-var validator_html = require("gulp-w3c-html-validator");
-var publish_project = require("gulp-gh-pages");
 
-gulp.task("build-html", function() {
-  return gulp.src("source/template/*.html")
-    .pipe(plumber())
+// Paths
+
+const paths = {
+  pages: {
+    take: {
+      initial: "source/template/*.html",
+      sources: "source/template/**/*.html"
+    },
+    build: {
+      gap: "build/gap",
+      end: "build/end"
+    },
+    check: {
+      gap: "build/gap/*.html",
+      end: "build/end/*.html"
+    }
+  },
+  styles: {
+    take: {
+      initial: "source/style/style.scss",
+      sources: "sources/style/**/*.scss"
+    },
+    build: {
+      gap: "build/gap/style",
+      end: "build/end/style"
+    },
+    check: {
+      sources: "source/style/**/*.scss"
+    }
+  },
+  images: {
+    take: {
+      sources: "source/image/**/*.{jpg,png,svg}",
+      text: "source/image/**/*.svg",
+      ignore: "!source/image/archive/**/*"
+    },
+    build: {
+      gap: "build/gap/image",
+      end: "build/end/image"
+    }
+  },
+  fonts: {
+    take: {
+      sources: "source/font/*.{woff,woff2}"
+    },
+    build: {
+      end: "build/end/font"
+    }
+  },
+  general: {
+    take: {
+      ico: "source/image/favicon/favicon-16.ico",
+      manifest: "source/instruction/technomart.webmanifest"
+    },
+    build: {
+      end: "build/end"
+    }
+  },
+  public: {
+    take: {
+      sources: "build/end/**/*"
+    },
+    build: {
+      public: "public"
+    },
+    public: {
+      sources: "public/**/*"
+    }
+  }
+};
+
+// Pages
+
+export const build_html = () => {
+  return gulp.src(paths.pages.take.initial)
     .pipe(rigger())
-    .pipe(gulp.dest("build/before"))
-    .pipe(gulp.dest("build/after"))
-    .pipe(server.stream());
-});
+    .pipe(gulp.dest(paths.pages.build.gap))
+    .pipe(gulp.dest(paths.pages.build.end))
+    .pipe(browser_sync.stream());
+};
 
-gulp.task("build-css", function() {
-  return gulp.src("source/style/style.scss")
-    .pipe(plumber())
-    .pipe(sourcemap.init())
-    .pipe(postcss([
-      postcss_normalize()
-    ]))
-    .pipe(sass({
-      outputStyle: "expanded"
-    }))
-    .pipe(postcss([
-      postcss_autoprefixer()
-    ]))
-    .pipe(gulp.dest("build/before/style"))
-    .pipe(sourcemap.write("."))
-    .pipe(gulp.dest("build/after/style"))
-    .pipe(server.stream());
-});
+// Styles
 
-gulp.task("build-copy-general", function() {
+export const build_css = () => {
+  return gulp.src(paths.styles.take.initial)
+    .pipe(sourcemaps.init())
+    .pipe(css_engine([
+      css_normalize()
+      ])
+    )
+    .pipe(sass
+//    async не оптимизирован
+      .sync({
+        outputStyle: "expanded"
+      })
+      .on("error", sass.logError)
+    )
+    .pipe(css_engine([
+      css_autoprefix()
+      ])
+    )
+    .pipe(gulp.dest(paths.styles.build.gap))
+    .pipe(sourcemaps.write("."))
+    .pipe(gulp.dest(paths.styles.build.end))
+    .pipe(browser_sync.stream());
+};
+
+// Images
+
+export const build_images_to_gap = () => {
   return gulp.src([
-    "source/image/favicon/favicon-16.ico",
-    "source/instruction/technomart.webmanifest"
-  ])
-    .pipe(changed("build/after"))
-    .pipe(gulp.dest("build/after"))
-    .pipe(server.stream());
-});
-
-gulp.task("build-copy-font", function() {
-  return gulp.src("source/font/*.{woff,woff2}")
-    .pipe(changed("build/after/font"))
-    .pipe(gulp.dest("build/after/font"))
-});
-
-gulp.task("build-copy", gulp.parallel("build-copy-general", "build-copy-font"));
-
-gulp.task("image-optimization-to-before", function() {
-  return gulp.src([
-    "source/image/**/*.svg",
-    "!source/image/archive/**/*"
-  ])
-    .pipe(changed("build/before/image"))
-    .pipe(optimization_image([
-      optimization_image.svgo({
+    paths.images.take.text,
+    paths.images.take.ignore
+    ])
+    .pipe(changed(paths.images.build.gap))
+    .pipe(imagemin([
+      svgo({
         js2svg: {
           pretty: true,
           indent: 2
         },
         plugins: [{
-          removeViewBox: false
-        }, {
-          cleanupNumericValues: {
-            floatPrecision: 2
+          name: "preset-default",
+          params: {
+            overrides: {
+              removeViewBox: false,
+              cleanupNumericValues: {
+                floatPrecision: 2
+              }
+            }
           }
         }, {
-          sortAttrs: true
+          name: "sortAttrs",
+          active: true
         }]
       })
-    ]))
-    .pipe(gulp.dest("build/before/image"));
-});
+    ], {
+      verbose: true
+    }))
+    .pipe(gulp.dest(paths.images.build.gap));
+};
 
-gulp.task("image-optimization-to-after", function() {
+export const build_images_to_end = () => {
   return gulp.src([
-    "source/image/**/*.{jpg,png,svg}",
-    "!source/image/archive/**/*"
-  ])
-    .pipe(changed("build/after/image/"))
-    .pipe(optimization_image([
-      optimization_image.svgo({
+    paths.images.take.sources,
+    paths.images.take.ignore
+    ])
+    .pipe(changed(paths.images.build.end))
+    .pipe(imagemin([
+      svgo({
         js2svg: {
           pretty: false
         },
         plugins: [{
-          removeViewBox: false
-        }, {
-          cleanupNumericValues: {
-            floatPrecision: 2
+          name: "preset-default",
+          params: {
+            overrides: {
+              removeViewBox: false,
+              cleanupNumericValues: {
+                floatPrecision: 2
+              }
+            }
           }
         }, {
-          sortAttrs: true
+          name: "sortAttrs",
+          active: true
         }]
       }),
-      optimization_image.mozjpeg({
+      mozjpeg({
         quality: 75,
         progressive: true
       }),
-      optimization_png()
-    ]))
-    .pipe(gulp.dest("build/after/image/"));
-});
+      pngquant()
+    ], {
+      verbose: true
+    }))
+    .pipe(gulp.dest(paths.images.build.end));
+};
 
-gulp.task("image-optimization", gulp.parallel("image-optimization-to-before", "image-optimization-to-after"));
+// Copy
 
-gulp.task("server", function() {
-  server.init({
-    server: "build/after",
-    index: "index.html",
-    notify: false,
-    open: true,
-    cors: true,
+export const copy_fonts = () => {
+  return gulp.src(paths.fonts.take.sources)
+    .pipe(changed(paths.fonts.build.end))
+    .pipe(gulp.dest(paths.fonts.build.end))
+};
+
+export const copy_general = () => {
+  return gulp.src([
+      paths.general.take.ico,
+      paths.general.take.manifest
+    ])
+    .pipe(changed(paths.general.build.end))
+    .pipe(gulp.dest(paths.general.build.end))
+};
+// копирует не нужные файлы, такие как sourcemaps
+export const copy_public = () => {
+  return gulp.src(paths.public.take.sources)
+    .pipe(gulp.dest(paths.public.build.public))
+};
+
+// Watch
+
+export const watch = () => {
+  gulp.watch(
+    paths.pages.take.sources,
+    gulp.series(build_html)
+  );
+  gulp.watch(
+    paths.styles.take.sources,
+    gulp.series(build_css)
+  );
+  gulp.watch([
+    paths.images.take.sources,
+    paths.images.take.ignore
+    ],
+    gulp.series(build_images)
+  );
+};
+
+// Server
+
+export const server = () => {
+  browser_sync.init({
     ui: false,
-    browser: "firefox"
+    server: {
+      baseDir: paths.pages.build.end,
+      index: "index.html"
+    },
+    browser: "firefox",
+    notify: false
   });
+};
 
-  gulp.watch("source/template/**/*.html", gulp.series("build-html"));
-  gulp.watch("source/style/**/*.scss", gulp.series("build-css"));
-  gulp.watch("source/instruction/technomart.webmanifest", gulp.series("build-copy-general"));
-  gulp.watch(["source/image/**/*.{jpg,png,svg}", "!source/image/archive/**/*"], gulp.series("image-optimization"));
-  gulp.watch("build/after/*.html").on("change", server.reload);
-});
+// Check
 
-gulp.task("linter-html", function() {
-  return gulp.src("build/before/*.html")
-    .pipe(linter_html(".htmlhintrc"))
-    .pipe(linter_html.reporter());
-});
+export const lint_html = () => {
+  return gulp.src(paths.pages.check.gap)
+    .pipe(linthtml(".htmlhintrc"))
+    .pipe(linthtml.reporter());
+};
 
-gulp.task("linter-scss", function () {
-  return gulp.src("source/style/**/*.scss")
-    .pipe(linter_css({
+export const lint_scss = () => {
+  return gulp.src(paths.styles.check.sources)
+    .pipe(lintscss({
       reporters: [{
-        failAfterError: true,
         formatter: "string",
         console: true
       }]
     }));
-});
+};
 
-gulp.task("validator-html", function() {
-  return gulp.src("build/before/*.html")
-    .pipe(validator_html())
-    .pipe(validator_html.reporter());
-});
+export const valid_html_from_gap = () => {
+  return gulp.src(paths.pages.check.gap)
+    .pipe(htmlValidator.analyzer())
+    .pipe(htmlValidator.reporter());
+};
 
-gulp.task("validator-html-min", function() {
-  return gulp.src("build/after/*.html")
-    .pipe(validator_html())
-    .pipe(validator_html.reporter());
-});
+export const valid_html_from_end = () => {
+  return gulp.src(paths.pages.check.end)
+    .pipe(htmlValidator.analyzer())
+    .pipe(htmlValidator.reporter());
+};
 
-gulp.task("public-copy", function() {
-  return gulp.src("build/after/**/*")
-    .pipe(changed("public"))
-    .pipe(gulp.dest("public"));
-});
+// Publish
 
-gulp.task("publish", function() {
-  return gulp.src("public/**/*")
-    .pipe(publish_project());
-});
+export const publish_project = () => {
+  return gulp.src(paths.public.public.sources)
+   .pipe(publish_engine());
+};
 
-gulp.task("lint", gulp.series("linter-html", "linter-scss"));
-// gulp.task("valid", gulp.series("validator-html"));         неисправен
-// gulp.task("valid-min", gulp.series("validator-html-min")); неисправен
-gulp.task("build", gulp.parallel("build-html", "build-css", "build-copy", "image-optimization"));
-gulp.task("start", gulp.series("build", "server"));
-gulp.task("public", gulp.series("build", "public-copy")); // копирует ненужные ресрусы, такие как sourcemaps
-gulp.task("deploy", gulp.series("public", "publish"));
+// Instructions
+
+export const lint =
+  gulp.parallel(
+    lint_html,
+    lint_scss
+);
+
+export const valid =
+  gulp.series(
+    valid_html_from_gap,
+    valid_html_from_end
+);
+
+export const build_images =
+  gulp.parallel(
+    build_images_to_gap,
+    build_images_to_end
+);
+
+export const build =
+  gulp.parallel(
+    copy_fonts,
+    copy_general,
+    build_images_to_gap,
+    build_images_to_end,
+    build_html,
+    build_css
+);
+
+export const activity =
+  gulp.parallel(
+    watch,
+    server
+);
+
+export const start =
+  gulp.series(
+    build,
+    activity
+);
+
+export const deploy =
+   gulp.series(
+     build,
+     copy_public,
+     publish_project
+);
