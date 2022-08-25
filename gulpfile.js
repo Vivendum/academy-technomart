@@ -37,7 +37,7 @@ const paths = {
   styles: {
     take: {
       initial: "source/style/style.scss",
-      sources: "sources/style/**/*.scss"
+      sources: "source/style/**/*.scss"
     },
     build: {
       gap: "build/gap/style",
