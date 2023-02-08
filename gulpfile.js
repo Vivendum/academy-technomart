@@ -44,7 +44,8 @@ const paths = {
       end: "build/end/style"
     },
     check: {
-      sources: "source/style/**/*.scss"
+      sources: "source/style/**/*.scss",
+      ignore: "!source/style/announcement/_text.scss"
     }
   },
   images: {
@@ -260,7 +261,10 @@ export const lint_html = () => {
 };
 
 export const lint_scss = () => {
-  return gulp.src(paths.styles.check.sources)
+  return gulp.src([
+    paths.styles.check.sources,
+    paths.styles.check.ignore
+    ])
     .pipe(lintscss({
       reporters: [{
         formatter: "string",
