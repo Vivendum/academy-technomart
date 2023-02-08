@@ -79,7 +79,7 @@
 
     "alpha-value-notation": "number",
 
-    "color-function-notation": "legacy",
+    "color-function-notation": "modern",
     "color-hex-length": "long",
     "color-named": "never",
 
