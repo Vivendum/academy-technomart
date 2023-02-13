@@ -1,0 +1,25 @@
+.content-box {
+  text-transform: uppercase;
+
+  font-family: var(--font-ps-sans);
+}
+
+.content-box__header {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.content-box__inscription-price {
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.content-box__label {
+  font-size: 15px;
+  line-height: 19px;
+}
+
+.content-box__input[disabled] + .content-box__inscription {
+  color: rgba(var(--color-project-revers) / 0.4);
+}

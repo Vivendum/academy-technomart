@@ -1,0 +1,19 @@
+.plan-site {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgb(var(--color-project-avers));
+
+  background-color: rgb(var(--color-brand));
+
+  list-style: none;
+}
+
+.plan-site__link:not([title]):hover {
+  background-color: rgb(var(--color-brand-selection));
+}
+
+.plan-site__link:not([title]):active {
+  color: rgba(var(--color-project-avers) / 0.5);
+
+  background-color: rgb(var(--color-brand-alert));
+}

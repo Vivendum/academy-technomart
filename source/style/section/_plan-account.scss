@@ -1,0 +1,30 @@
+.plan-account {
+  font-size: 21px;
+  line-height: 21px;
+
+  background-color: rgb(var(--color-project-selection));
+
+  list-style: none;
+}
+
+.plan-account__link {
+  color: rgb(var(--color-project-revers));
+
+  background-color: rgb(var(--color-project-avers));
+}
+
+.plan-account__link:hover {
+  color: rgb(var(--color-promo));
+}
+
+.plan-account__link:active {
+  color: rgb(var(--color-ghost));
+}
+
+.plan-account__link--minor {
+  font-size: 16px;
+  line-height: 18px;
+  color: rgb(var(--color-brand));
+
+  background-color: transparent;
+}

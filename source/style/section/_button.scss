@@ -1,0 +1,88 @@
+.button {
+  text-transform: uppercase;
+
+  font-size: 14px;
+  line-height: 18px;
+  color: rgb(var(--color-project-avers));
+
+  cursor: pointer;
+}
+
+.button[disabled] {
+  cursor: default;
+}
+
+.button--classic {
+  color: rgb(var(--color-project-revers));
+
+  background-color: rgb(var(--color-project-avers));
+}
+
+// .button--classic:hover,
+// .button--classic:active {
+//   копировать из button--display
+// }
+
+.button--promo {
+  background-color: rgb(var(--color-promo));
+}
+
+.button--promo:hover {
+  background-color: rgb(var(--color-promo-selection));
+}
+
+.button--promo:active {
+  background-color: rgb(var(--color-promo-alert));
+}
+
+.button--ghost {
+  background-color: rgba(var(--color-project-avers) / 0.3);
+}
+
+.button--ghost:hover {
+  background-color: rgba(var(--color-ghost) / 0.3);
+}
+
+.button--ghost:active {
+  background-color: rgba(var(--color-ghost-alert) / 0.3);
+}
+
+.button--buy {
+  background-color: rgb(var(--color-empahasis));
+}
+
+.button--buy:hover {
+  background-color: rgb(var(--color-empahasis-selection));
+}
+
+.button--buy:active {
+  background-color: rgb(var(--color-empahasis-alert));
+}
+
+.button--tab {
+  color: rgb(var(--color-brand));
+
+  background-color: rgb(var(--color-project-avers));
+}
+
+.button--tab:active {
+  color: rgba(var(--color-brand) / 0.5);
+}
+
+.button--display {
+  font-size: 13px;
+  font-family: var(--font-ps-sans);
+  color: rgb(var(--color-project-revers));
+
+  background-color: rgb(var(--color-project-avers));
+}
+
+.button--display[title] {
+  color: rgb(var(--color-project-avers));
+
+  background-color: rgb(var(--color-promo));
+}
+
+.button--display[disabled] {
+  color: rgba(var(--color-project-revers) / 0.4);
+}

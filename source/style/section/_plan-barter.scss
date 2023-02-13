@@ -1,0 +1,23 @@
+.plan-barter {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgb(var(--color-project-avers));
+
+  background-color: rgb(var(--color-brand-selection));
+
+  list-style: none;
+}
+
+.plan-barter__link:active {
+  color: rgba(var(--color-project-avers) / 0.5);
+
+  background-color: rgb(var(--color-brand-special));
+}
+
+.plan-barter__link--empahasis {
+  background-color: rgb(var(--color-empahasis));
+}
+
+.plan-barter__link--empahasis:hover {
+  background-color: rgb(var(--color-empahasis-selection));
+}

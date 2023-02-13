@@ -1,0 +1,33 @@
+.search {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgb(var(--color-project-avers));
+
+  background-color: rgb(var(--color-brand-selection));
+}
+
+.search__input-search {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+  background-color: inherit;
+}
+
+.search__input-search:focus {
+  color: rgb(var(--color-project-revers));
+
+  background-color: rgb(var(--color-project-avers));
+}
+
+.search__input-search::placeholder {
+  opacity: 1;
+}
+
+.search__input-search:hover::placeholder {
+  opacity: 0.5;
+}
+
+.search__input-search:focus::placeholder {
+  opacity: 0;
+}

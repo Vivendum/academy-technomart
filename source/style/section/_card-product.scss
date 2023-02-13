@@ -1,0 +1,27 @@
+.card-product {
+  font-family: var(--font-ps-sans);
+}
+
+.card-product__header {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.card-product__price {
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.card-product__price--additional {
+  font-weight: 700;
+  color: rgb(var(--color-ghost-alert));
+
+  text-decoration: line-through;
+}
+
+.card-product__price--relevant {
+  color: rgb(var(--color-project-avers));
+
+  background-color: rgb(var(--color-promo));
+}

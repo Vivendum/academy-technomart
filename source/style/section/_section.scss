@@ -1,0 +1,24 @@
+.section__header {
+  text-transform: uppercase;
+
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.section__header--brand {
+  color: rgb(var(--color-brand));
+}
+
+.section__description {
+  font-size: 13px;
+  line-height: 24px;
+  font-family: var(--font-ps-sans);
+}
+
+.section__list {
+  font-size: 18px;
+  line-height: 24px;
+
+  list-style: none;
+}

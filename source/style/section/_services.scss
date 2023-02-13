@@ -1,0 +1,27 @@
+.services {
+  background-color: rgb(var(--color-project-selection));
+}
+
+.services__plan {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 30px;
+
+  list-style: none;
+}
+
+.services__link {
+  color: rgb(var(--color-project-avers));
+
+  background-color: rgb(var(--color-brand));
+}
+
+.services__link:not([title]):hover {
+  background-color: rgb(var(--color-brand-selection));
+}
+
+.services__link[title] {
+  color: rgb(var(--color-brand));
+
+  background-color: rgb(var(--color-project-avers));
+}

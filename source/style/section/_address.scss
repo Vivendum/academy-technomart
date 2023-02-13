@@ -1,0 +1,22 @@
+.address {
+  font-style: normal;
+}
+
+.address--text {
+  font-size: 18px;
+  line-height: 24px;
+  color: rgb(var(--color-project-selection));
+}
+
+.address__telephone {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 30px;
+  color: rgb(var(--color-promo));
+}
+
+.address__description {
+  font-size: 14px;
+  line-height: 24px;
+  color: rgb(var(--color-brand));
+}

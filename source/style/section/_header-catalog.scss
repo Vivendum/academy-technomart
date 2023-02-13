@@ -1,0 +1,15 @@
+.header-catalog {
+  text-transform: uppercase;
+
+  font-size: 30px;
+  line-height: 30px;
+  color: rgb(var(--color-brand));
+}
+
+.header-catalog--alert {
+  background-color: rgb(var(--color-project-alert));
+}
+
+.header-catalog--selection {
+  background-color: rgb(var(--color-project-selection));
+}

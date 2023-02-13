@@ -1,0 +1,7 @@
+.logo {
+  background-color: rgb(var(--color-promo));
+}
+
+.logo:not([title]):active {
+  background-color: rgb(var(--color-promo-alert));
+}

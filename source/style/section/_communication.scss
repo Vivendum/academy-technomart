@@ -1,0 +1,16 @@
+.communication__label {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.communication__input {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.communication__input::placeholder {
+  font-size: 13px;
+  line-height: inherit;
+  font-family: var(--font-ps-sans);
+  color: rgb(var(--color-ghost-alert));
+}

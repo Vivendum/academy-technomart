@@ -1,41 +1,69 @@
-<header>
-  <nav>
-    <a href="index.html">
-      <img src="image/content/logo-technomart.svg" alt="Техномарт" width="220" height="42">
+<header class="page-header">
+  <nav class="navigation-user">
+    <a class="logo" href="index.html">
+      <img src="image/content/logo-technomart.svg" alt="Техномарт" width="108" height="18">
     </a>
-    <form name="search" action="https://echo.htmlacademy.ru/" method="get">
+    <form class="search" name="search" action="https://echo.htmlacademy.ru/" method="get">
       <label for="search-search">Поиск по сайту</label>
-      <input id="search-search" name="search" type="search" placeholder="Поиск:">
+      <input class="search__input-search" id="search-search" name="search" type="search" placeholder="Поиск:">
       <input type="submit" value="Найти">
     </form>
-    <ul>
+    <ul class="plan-barter">
       <li>
-        <ul>
-          <li><a href="#">Равшан Джамшутович</a></li>
-          <li><a href="#">Выйти</a></li>
-          <li><a href="#">Мои заказы</a></li>
-          <li><a href="#">Личный кабинет</a></li>
+        <ul class="plan-account">
+          <li>
+            <a class="plan-account__link" href="#">Равшан Джамшутович</a>
+          </li>
+          <li>
+            <a class="plan-account__link" href="#">Выйти</a>
+          </li>
+          <li>
+            <a class="plan-account__link plan-account__link--minor" href="#">Мои заказы</a>
+          </li>
+          <li>
+            <a class="plan-account__link plan-account__link--minor" href="#">Личный кабинет</a>
+          </li>
         </ul>
       </li>
-      <li><a href="#">Закладки: 0</a></li>
-      <li><a href="#">Корзина: 10</a></li>
-      <li><a href="#">Оформить заказ</a></li>
+      <li>
+        <a class="plan-barter__link" href="#">Закладки: 0</a>
+      </li>
+      <li>
+        <a class="plan-barter__link" href="#">Корзина: 10</a>
+      </li>
+      <li>
+        <a class="plan-barter__link plan-barter__link--empahasis" href="#">Оформить заказ</a>
+      </li>
     </ul>
   </nav>
-  <p>Интернет-магазин строительных материалов и инструментов для ремонта</p>
-  <address>
-    <a href="tel:+78005558628">+7 800 555-86-28</a>
-    <p><abbr title="город">г.</abbr> Санкт-Петербург, <abbr title="набережная">наб.</abbr> Реки Карповки, 5 <abbr title="литера">лит</abbr> П</p>
+  <p class="promo">Интернет-магазин строительных материалов и инструментов для ремонта</p>
+  <address class="address">
+    <a class="address__telephone" href="tel:+78005558628">+7 800 555-86-28</a>
+    <p class="address__description"><abbr title="город">г.</abbr> Санкт-Петербург, <abbr title="набережная">наб.</abbr> Реки Карповки, 5 <abbr title="литера">лит</abbr> П</p>
   </address>
-  <nav>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="#">Компания</a></li>
-      <li><a title="Вы находитесь на этой странице">Каталог</a></li>
-      <li><a href="#">Новости</a></li>
-      <li><a href="#">Спецпредложения</a></li>
-      <li><a href="#">Доставка</a></li>
-      <li><a href="#">Контакты</a></li>
+  <nav class="navigation-site">
+    <ul class="plan-site">
+      <li>
+        <a class="plan-site__link" href="index.html">Главная</a>
+      </li>
+      <li>
+        <a class="plan-site__link" href="#">Компания</a>
+      </li>
+      <li>
+        <a class="plan-site__link" title="Вы находитесь на этой странице">Каталог</a>
+      </li>
+      <li>
+        <a class="plan-site__link" href="#">Новости</a>
+      </li>
+      <li>
+        <a class="plan-site__link" href="#">Спецпредложения</a>
+      </li>
+      <li>
+        <a class="plan-site__link" href="#">Доставка</a>
+      </li>
+      <li>
+        <a class="plan-site__link" href="#">Контакты</a>
+      </li>
     </ul>
   </nav>
 </header>

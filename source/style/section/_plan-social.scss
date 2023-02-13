@@ -1,0 +1,15 @@
+.plan-social {
+  list-style: none;
+}
+
+.plan-social__link {
+  background-color: rgb(var(--color-brand-alert));
+}
+
+.plan-social__link:hover {
+  background-color: rgb(var(--color-promo));
+}
+
+.plan-social__link:active {
+  text-decoration-line: underline;
+}

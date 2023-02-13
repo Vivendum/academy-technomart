@@ -7,179 +7,197 @@
     //= head/viewport.html
     //= head/style.html
   </head>
-  <body>
+  <body class="page">
     //= section/header-inner.html
-    <main>
-      <ul>
+    <main class="page-main">
+      <ul class="breadcrumb">
         <li><a href="index.html">Главная</a></li>
         <li><a href="#">Каталог</a></li>
         <li><a href="#">Инструмент</a></li>
         <li><a title="Вы находитесь на этой странице">Перфораторы</a></li>
       </ul>
-      <h1>Перфораторы</h1>
+      <h1 class="header-catalog header-catalog--selection">Перфораторы</h1>
       <section>
-        <h2>Фильтр:</h2>
+        <h2 class="header-display">Фильтр:</h2>
         <form name="filter" action="https://echo.htmlacademy.ru/" method="post" oninput="show_price_min.value=price_min.value; show_price_max.value=price_max.value">
-          <fieldset>
-            <legend>Цена:</legend>
+          <fieldset class="content-box">
+            <legend class="content-box__header">Цена:</legend>
             <label for="price-min">Минимальная цена</label>
             <input id="price-min" name="price_min" type="number" value="0" min="0" max="40000" step="1000">
             <label for="price-max">Максимальная цена</label>
             <input id="price-max" name="price_max" type="number" value="30000" min="1000" max="40000" step="1000">
-            <span>от <output name="show_price_min" for="price-min">0</output></span>
-            <span>до <output name="show_price_max" for="price-max">30000</output></span>
+            <span>от <output class="content-box__inscription-price" name="show_price_min" for="price-min">0</output></span>
+            <span>до <output class="content-box__inscription-price" name="show_price_max" for="price-max">30000</output></span>
           </fieldset>
-          <fieldset>
-            <legend>Производители:</legend>
-            <label>
-              <input name="manufacturer-bosch" type="checkbox" checked>
-              <span lang="en">BOSCH</span>
+          <fieldset class="content-box">
+            <legend class="content-box__header">Производители:</legend>
+            <label class="content-box__label">
+              <input class="content-box__input" name="manufacturer-bosch" type="checkbox" checked>
+              <span class="content-box__inscription" lang="en">BOSCH</span>
             </label>
-            <label>
-              <input name="manufacturer-interscol" type="checkbox">
-              <span>ИНТЕРСКОЛ</span>
+            <label class="content-box__label">
+              <input class="content-box__input" name="manufacturer-interscol" type="checkbox">
+              <span class="content-box__inscription">ИНТЕРСКОЛ</span>
             </label>
-            <label>
-              <input name="manufacturer-makita" type="checkbox" checked>
-              <span lang="en">MAKITA</span>
+            <label class="content-box__label">
+              <input class="content-box__input" name="manufacturer-makita" type="checkbox" checked>
+              <span class="content-box__inscription" lang="en">MAKITA</span>
             </label>
-            <label>
-              <input name="manufacturer-dewalt" type="checkbox">
-              <span lang="en">DEWALT</span>
+            <label class="content-box__label">
+              <input class="content-box__input" name="manufacturer-dewalt" type="checkbox">
+              <span class="content-box__inscription" lang="en">DEWALT</span>
             </label>
-            <label>
-              <input name="manufacturer-hitachi" type="checkbox">
-              <span lang="en">HITACHI</span>
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>Питание:</legend>
-            <label>
-              <input name="powered" type="radio" value="battery" checked>
-              <span>Аккумуляторные</span>
-            </label>
-            <label>
-              <input name="powered" type="radio" value="network">
-              <span>Сетевые</span>
+            <label class="content-box__label">
+              <input class="content-box__input" name="manufacturer-hitachi" type="checkbox">
+              <span class="content-box__inscription" lang="en">HITACHI</span>
             </label>
           </fieldset>
-          <input type="submit" value="Показать">
+          <fieldset class="content-box">
+            <legend class="content-box__header">Питание:</legend>
+            <label class="content-box__label">
+              <input class="content-box__input" name="powered" type="radio" value="battery" checked>
+              <span class="content-box__inscription">Аккумуляторные</span>
+            </label>
+            <label class="content-box__label">
+              <input class="content-box__input" name="powered" type="radio" value="network">
+              <span class="content-box__inscription">Сетевые</span>
+            </label>
+          </fieldset>
+          <input class="button button--display" type="submit" value="Показать">
         </form>
       </section>
       <section>
-        <h2>Сортировка:</h2>
-        <ul>
+        <h2 class="header-display">Сортировка:</h2>
+        <ul class="plan-display">
           <li>
-            <a title="Выбрано">По цене</a>
+            <a class="plan-display__link" title="Выбрано">По цене</a>
           </li>
           <li>
-            <a href="#">По типу</a>
+            <a class="plan-display__link" href="#">По типу</a>
           </li>
           <li>
-            <a href="#">По функционалу</a>
+            <a class="plan-display__link" href="#">По функционалу</a>
           </li>
         </ul>
-        <ul>
+        <ul class="plan-display">
           <li>
-            <a title="Выбрано">По возрастанию</a>
+            <a class="plan-display__link" title="Выбрано">По возрастанию</a>
           </li>
           <li>
-            <a href="#">По убыванию</a>
+            <a class="plan-display__link" href="#">По убыванию</a>
           </li>
         </ul>
       </section>
       <section>
         <h2>Список товаров</h2>
-        <ul>
-          <li>
-            <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
-            <s>30500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+        <ul class="card__wrapper">
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 6000</h3>
+              <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
+              <s class="card-product__price card-product__price--additional">30500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">25500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
-            <s>30500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">30500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 6000</h3>
+              <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
+              <s class="card-product__price card-product__price--additional">30500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">25500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
-            <s>30500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 6000</h3>
+              <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
+              <s class="card-product__price card-product__price--additional">30500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">25500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 3000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета." width="127" height="112">
-            <s>22500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">15500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 3000</h3>
+              <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета." width="127" height="112">
+              <s class="card-product__price card-product__price--additional">22500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">15500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
-            <s>30500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 6000</h3>
+              <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
+              <s class="card-product__price card-product__price--additional">30500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">25500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 2000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета." width="127" height="112">
-            <a href="#">12500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 2000</h3>
+              <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета." width="127" height="112">
+              <p class="card-product__price card-product__price--relevant">12500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 3000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета." width="127" height="112">
-            <s>22500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">15500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 3000</h3>
+              <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 3000, синего цвета." width="127" height="112">
+              <s class="card-product__price card-product__price--additional">22500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">15500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 6000</h3>
-            <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
-            <s>30500 <abbr title="рублей">р</abbr>.</s>
-            <a href="#">25500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 6000</h3>
+              <img src="image/content/perforator-bosch-bfg-6000.jpg" alt="Перфоратор BOSCH, модель BFG 6000, синего цвета." width="144" height="128">
+              <s class="card-product__price card-product__price--additional">30500 <abbr title="рублей">р</abbr>.</s>
+              <p class="card-product__price card-product__price--relevant">25500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
-          <li>
-            <h3>Перфоратор BOSCH BFG 2000</h3>
-            <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета." width="127" height="112">
-            <a href="#">12500 <abbr title="рублей">р</abbr>.</a>
-            <button type="button">Купить</button>
-            <button type="button">В закладки</button>
+          <li class="card card-product">
+            <a href="#">
+              <h3 class="card-product__header">Перфоратор <span lang="en">BOSCH BFG</span> 2000</h3>
+              <img src="image/content/perforator-bosch-bfg-2000-3000.jpg" alt="Перфоратор BOSCH, модель BFG 2000, синего цвета." width="127" height="112">
+              <p class="card-product__price card-product__price--relevant">12500 <abbr title="рублей">р</abbr>.</p>
+            </a>
+            <button class="button button--buy" type="button">Купить</button>
+            <button class="button button--tab" type="button">В закладки</button>
           </li>
         </ul>
       </section>
-      <ul>
+      <ul class="pagination">
         <li>
-          <a title="Вы находитесь на этой странице">1</a>
+          <a class="button button--display" title="Вы находитесь на этой странице">1</a>
         </li>
         <li>
-          <a href="#">2</a>
+          <a class="button button--display" href="#">2</a>
         </li>
         <li>
-          <a href="#">3</a>
+          <a class="button button--display" href="#">3</a>
         </li>
         <li>
-          <button type="button">Следующая</button>
+          <button class="button button--display" type="button">Следующая</button>
         </li>
       </ul>
-      <section>
-        <h2>Пара слов о перфораторах</h2>
-        <p>
+      <section class="section annotation">
+        <h2 class="section__header">Пара слов о перфораторах</h2>
+        <p class="section__description">
           Перфоратор — универсальный строительный инструмент. Предназначен для сверления и долбления отверстий в кирпиче, бетоне и камне.<br>
           Существуют электромеханические и пневматические перфораторы. Современные модели могут выполнять функции дрели, шуруповерта и отбойного молотка.<br>
           В ассортиментном ряду есть выбор «трехрежимников»: в одном устройстве будут совмещены отбойный молоток и ударная дрель.
@@ -187,11 +205,13 @@
       </section>
     </main>
     //= section/footer-inner.html
-    <section>
+    <section class="message-trade">
       <h2>Торговое сообщение</h2>
-      <p>Товар добавлен в корзину!</p>
-      <a href="#">Оформить заказ</a>
-      <button type="button">Продолжить покупки</button>
+      <p class="message-trade__header">Товар добавлен в корзину!</p>
+      <p class="message-trade__inner">
+        <a class="button button--promo" href="#">Оформить заказ</a>
+        <button class="button button--classic" type="button">Продолжить покупки</button>
+      </p>
       <button type="button">Закрыть</button>
     </section>
   </body>

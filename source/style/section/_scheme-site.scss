@@ -1,0 +1,28 @@
+.scheme-site {
+  font-size: 18px;
+  line-height: 24px;
+
+  background-color: rgb(var(--color-brand));
+
+  list-style: none;
+}
+
+.scheme-site__plan {
+  list-style: none;
+}
+
+.scheme-site__plan--site {
+  color: rgb(var(--color-project-selection));
+}
+
+.scheme-site__plan--product {
+  color: rgb(var(--color-secondary));
+}
+
+.scheme-site__link:not([title]):hover {
+  text-decoration-line: underline;
+}
+
+.scheme-site__link:not([title]):active {
+  opacity: 0.5;
+}

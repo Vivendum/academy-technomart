@@ -1,0 +1,43 @@
+.plan-product {
+  color: rgb(var(--color-project-avers));
+}
+
+.plan-product__item {
+  background-color: rgb(var(--color-brand));
+}
+
+.plan-product__item--orange {
+  background-color: rgb(var(--color-rainbow-orange));
+}
+
+.plan-product__item--blue {
+  background-color: rgb(var(--color-rainbow-blue));
+}
+
+.plan-product__item--purple {
+  background-color: rgb(var(--color-rainbow-purple));
+}
+
+.plan-product__item--green {
+  background-color: rgb(var(--color-rainbow-green));
+}
+
+.plan-product__item--yellow {
+  background-color: rgb(var(--color-rainbow-yellow));
+}
+
+.plan-product__header {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.plan-product__header--big {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+.plan-product__description {
+  font-size: 18px;
+  line-height: 24px;
+}

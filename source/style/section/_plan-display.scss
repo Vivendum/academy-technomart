@@ -1,0 +1,29 @@
+.plan-display {
+  text-transform: uppercase;
+
+  font-size: 13px;
+  line-height: 18px;
+  font-family: var(--font-ps-sans);
+
+  background-color: rgb(var(--color-project-alert));
+
+  list-style: none;
+}
+
+.plan-display__link:not([title]) {
+  text-decoration: underline dotted rgb(var(--color-promo));
+
+  color: rgba(var(--color-project-revers) / 0.3);
+}
+
+.plan-display__link:not([title]):hover {
+  text-decoration-style: solid;
+
+  color: rgb(var(--color-project-revers));
+}
+
+.plan-display__link[title] {
+  text-decoration: none;
+
+  color: rgb(var(--color-promo));
+}
