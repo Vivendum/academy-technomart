@@ -22,19 +22,7 @@
 
 
 
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "content",
-          "define-mixin",
-          "each",
-          "include",
-          "mixin",
-          "rules"
-        ]
-      }
-    ],
+    "at-rule-no-unknown": null,
 
 
     "at-rule-no-vendor-prefix": true,
