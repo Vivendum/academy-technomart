@@ -1,33 +1,16 @@
+@import "../announcement/colors";
+@import "../announcement/fonts";
+
+@function hex-to-rgb($hex) {
+  @return red($hex) green($hex) blue($hex);
+}
+
 :root {
-  --color-brand: #32425c;
-  --color-brand-alert: #212a3a; // 1d2739
-  --color-brand-selection: #293449;
-  --color-brand-special: #161d29;
+  @each $key, $value in $fonts {
+    --font-#{$key}: #{$value};
+  }
 
-  --color-empahasis: #63a63e;
-  --color-empahasis-alert: #518534;
-  --color-empahasis-selection: #5fbb2d;
-
-  --color-ghost: #c5c5c5; // c1c6ce
-  --color-ghost-selection: #eaeaea; // e5e5e5
-  --color-ghost-alert: #a9a9a9; // b5b5b5 b7bfc8 (тень ползунков)
-
-  --color-project-alert: #f9f5f0; // f7f3ec
-  --color-project-avers: #ffffff;
-  --color-project-revers: #000000;
-  --color-project-selection: #f1f5f7; // f3f7f9
-  --color-project-special: #f3f3f3; // f1f1f1 f4f4f4
-
-  --color-promo: #ee3643;
-  --color-promo-alert: #ba2732;
-  --color-promo-selection: #ca2c37;
-  --color-promo-special: #b52933;
-
-  --color-rainbow-blue: #3bbce3;
-  --color-rainbow-green: #8ed78f;
-  --color-rainbow-orange: #ffbf47;
-  --color-rainbow-purple: #dc91d8;
-  --color-rainbow-yellow: #ffc047;
-
-  --color-secondary: #ffd180; // ffda96
+  @each $key, $value in $colors {
+    --color-#{$key}: #{hex-to-rgb($value)};
+  }
 }
