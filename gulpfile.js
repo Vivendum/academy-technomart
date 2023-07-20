@@ -2,7 +2,7 @@ import browser_sync from "browser-sync";
 import gulp from "gulp";
 import rigger from "gulp-rigger";
 import sass_gulp from "gulp-sass";
-import sass_engine from "sass";
+import * as sass_engine from "sass";
 const sass = sass_gulp(sass_engine);
 import css_engine from "gulp-postcss";
 import css_normalize from "postcss-normalize";
